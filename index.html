@@ -276,21 +276,20 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form name="contact" id="contactForm" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contact">
+                    <form id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdg5fiMWmzfN1tmJ35ZVNhGE3eqHrdAaD7BDtf8bS-Cqv0VIQ/formResponse" method="POST" target="hidden_iframe">
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
+                            <input type="text" id="name" name="entry.1110679373" class="form-input" placeholder="Enter your full name" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                            <input type="tel" id="phone" name="entry.1345405368" class="form-input" placeholder="+91 12345 67890" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="service" class="form-label">Service Required</label>
-                            <select id="service" name="service" class="form-select" required>
+                            <select id="service" name="entry.1657482665" class="form-select" required>
                                 <option value="">Choose your service...</option>
                                 <option value="Blouse Stitching">Blouse Stitching & Design</option>
                                 <option value="Saree Fall/Pico">Saree Fall & Pico Work</option>
@@ -303,8 +302,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="details" class="form-label">Project Details</label>
-                            <input type="text" id="details" name="details" class="form-input" required>
+                            <label for="message" class="form-label">Project Details</label>
+                            <input type="text" id="message" name="entry.1813474028" class="form-input" placeholder="Tell us about your project requirements..." style="height: 80px;">
                         </div>
                         
                         <button type="submit" class="submit-button">
@@ -312,6 +311,7 @@
                             Send My Request
                         </button>
                     </form>
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
                 </div>
             </div>
         </div>
