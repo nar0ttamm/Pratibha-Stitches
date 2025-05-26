@@ -48,6 +48,16 @@ setInterval(() => {
 
 // Form submission
 document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const phoneInput = document.getElementById('phone');
+    if (!isValidIndianPhone(phoneInput.value)) {
+        e.preventDefault();
+        phoneInput.classList.add('input-error');
+        phoneInput.focus();
+        alert('Please enter a valid 10-digit Indian mobile number. +91 is optional.');
+        return false;
+    } else {
+        phoneInput.classList.remove('input-error');
+    }
     setTimeout(() => {
         document.getElementById('successOverlay').classList.add('show');
         this.reset();
@@ -94,6 +104,23 @@ menuToggle?.addEventListener('click', () => {
     navRight.classList.toggle('show');
     menuToggle.classList.toggle('active');
 });
+
+// Close mobile menu on nav link click (for mobile UX)
+document.querySelectorAll('.nav-link, .contact-btn').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768 && navRight.classList.contains('show')) {
+            navRight.classList.remove('show');
+            menuToggle.classList.remove('active');
+        }
+    });
+});
+
+// Phone number validation for Indian numbers
+function isValidIndianPhone(phone) {
+    // Accepts: 9876543210, 09876543210, +919876543210, +91 9876543210, +91-9876543210
+    const cleaned = phone.replace(/\s|-/g, '');
+    return /^((\+91)?0?)?[6-9][0-9]{9}$/.test(cleaned);
+}
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {

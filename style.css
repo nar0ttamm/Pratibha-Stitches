@@ -376,6 +376,7 @@ body {
     transition: all 0.5s ease;
     position: relative;
     cursor: pointer;
+    padding-top: 20px;
 }
 
 .design-card::before {
@@ -401,13 +402,18 @@ body {
 }
 
 .design-image {
+    width: 300px;
     height: 300px;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1 / 1;
     background: linear-gradient(45deg, var(--purple), var(--coral-rose));
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+    margin: 0 auto 20px auto;
 }
 
 .design-image::before {
@@ -439,30 +445,31 @@ body {
 
 .design-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--white);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 600;
 }
 
 .design-desc {
     color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
 .design-features {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
 .feature-tag {
     background: rgba(213, 224, 75, 0.2);
     color: var(--lime-green);
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
@@ -908,33 +915,152 @@ body {
         display: none;
     }
     
+    .nav-right.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 90px;
+        right: 0;
+        left: 0;
+        background: rgba(26, 26, 26, 0.98);
+        z-index: 2000;
+        padding: 30px 0 20px 0;
+        gap: 30px;
+        align-items: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        animation: slideInDown 0.3s;
+    }
+    
     .menu-toggle {
         display: flex;
     }
     
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.1rem;
     }
     
     .designs-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
+        gap: 16px;
+        margin-top: 30px;
     }
-    
-    .container {
-        padding: 0 20px;
+    .design-card {
+        padding: 10px;
+        border-radius: 12px;
     }
-    
+    .design-info {
+        padding: 14px;
+    }
+    .design-title {
+        font-size: 1rem;
+    }
+    .design-desc {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+    .feature-tag {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+    .section-header {
+        margin-bottom: 30px;
+    }
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+        font-size: 0.9rem;
+        max-width: 95vw;
+    }
+    .testimonial-slide {
+        padding: 20px 10px;
+        border-radius: 12px;
+    }
+    .testimonial-text {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    .author-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+    }
     .contact-form {
-        padding: 30px;
+        padding: 16px;
+        border-radius: 14px;
     }
-    
+    .contact-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .contact-desc {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    .form-label {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+    .form-input, .form-select {
+        font-size: 0.9rem;
+        padding: 10px 10px;
+        border-radius: 8px;
+    }
+    .submit-button {
+        font-size: 0.95rem;
+        padding: 12px;
+        border-radius: 8px;
+    }
+    .social-btn {
+        font-size: 0.95rem;
+        padding: 10px 18px;
+        border-radius: 30px;
+        gap: 8px;
+    }
+    .success-message {
+        padding: 18px;
+        border-radius: 10px;
+        font-size: 1rem;
+        max-width: 90vw;
+    }
+    .container {
+        padding: 0 8px;
+    }
+    .contact-form {
+        padding: 10px;
+    }
     .social-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 12px;
     }
-    
     .form-select {
-        font-size: 0.95rem;
-        padding: 10px 14px;
+        font-size: 0.9rem;
+        padding: 8px 8px;
+    }
+    .design-image {
+        width: 140px;
+        height: 140px;
+        min-width: 100px;
+        min-height: 100px;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
