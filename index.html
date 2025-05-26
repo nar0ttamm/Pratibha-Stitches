@@ -277,7 +277,8 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm" name="contact" method="POST" data-netlify="true">
+                    <form id="contactForm" name="contact" method="POST">
+                        <input type="hidden" name="form-name" value="contact" />
                         <div class="form-group">
                             <label for="name" class="form-label">Your Name</label>
                             <input type="text" id="name" name="entry.1110679373" class="form-input" placeholder="Enter your full name" required>
