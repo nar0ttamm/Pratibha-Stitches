@@ -47,12 +47,24 @@ setInterval(() => {
 }, 5000);
 
 // Form submission
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    setTimeout(() => {
-        document.getElementById('successOverlay').classList.add('show');
-        this.reset();
-    }, 1000);
-});
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const form = this;
+        const formData = new FormData(form);
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            document.getElementById('successOverlay').classList.add('show');
+            form.reset();
+        })
+        .catch(error => alert(error));
+    });
+}
 
 function closeSuccess() {
     document.getElementById('successOverlay').classList.remove('show');
